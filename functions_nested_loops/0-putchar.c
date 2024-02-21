@@ -1,8 +1,8 @@
-#include "_putchar.c"
+#include "main.h"
 /**
  * main - Entry point
  *
- * Return: Alway 0 (Sucess)
+ * Return: Alway 0
  */
 int main(void)
 {
