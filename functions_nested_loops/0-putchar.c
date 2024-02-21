@@ -1,17 +1,20 @@
 #include "main.h"
 
 /**
- * print_alphabet - Prints the alphabet in lowercase
+ * main - Prints _putchar followed by a newline
  *
- * Return : Always 0
+ * Return: Always 0.
  */
-void print_alphabet(void)
+int main(void)
 {
-         char c;
+        int str[] = {95, 112, 117, 116, 99, 104, 97, 114};
+        int count, sz;
 
-       for (c = 'a'; c <= 'z'; c++)
+       sz = sizeof(str) / sizeof(int);
+       for (count = 0; count < sz; count++)
        {
-               _putchar(c);
-       }
+               _putchar(str[count]);
+       }
        _putchar('\n');
+       return (0);
 }
