@@ -1,18 +1,8 @@
-#include "main.h"
+#ifndef MAIN_H
+#define MAIN_H
 
-/**
- * _abs - computes the absolute value of an integer
- * @n: The integer to be checked
- * Return: The absolute value of the integer
- */
-int _abs(int n)
-{
-	if (n < 0)
-	{
-		return -n;
-	}
-	else
-	{
-		return n;
-	}
-}
+int _abs(int);
+int print_last_digit(int);
+int _putchar(char c);
+
+#endif /* MAIN_H */
