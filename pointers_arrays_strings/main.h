@@ -8,5 +8,6 @@ void _puts(char *str);
 void print_rev(char *s);
 int _putchar(char c);
 int _atoi(char *s);
+char *_strcpy(char *dest, char *src);
 
 #endif /* MAIN_H */
