@@ -18,6 +18,7 @@ char *cap_string(char *s)
 	{
 
 		int is_separator = 0;
+
 		for (int j = 0; separators[j] != '\0'; j++)
 		{
 			if (s[i] == separators[j])
