@@ -1,50 +1,32 @@
 #include "main.h"
-
 /**
- * cap_string - Capitalizes all words of a string.
- * @s: The string to capitalize.
- *
- * Return: The capitalized string.
- */
+ * cap_string - capitalizes everey word of a string
+ * @s: string to modify
+ * Return: the resulting string
+*/
 char *cap_string(char *s)
 {
-	int i = 0;
-	int capitalize = 1;
+int i, j;
 
+char spe[13] = {' ', '\t', '\n', ',', ';', '.',
+'!', '?', '"', '(', ')', '{', '}'};
 
-	char separators[] = " \t\n,;.!?\"(){}";
+for (i = 0; s[i] != '\0'; i++)
+{
+if (i == 0 && s[i] >= 'a' && s[i] <= 'z')
+s[i] -= 32;
 
-	while (s[i] != '\0')
-	{
+for (j = 0; j < 13; j++)
+{
+if (s[i] == spe[j])
+{
+if (s[i + 1] >= 'a' && s[i + 1] <= 'z')
+{
+s[i + 1] -= 32;
+}
+}
+}
+}
 
-		int is_separator = 0;
-
-		for (int j = 0; separators[j] != '\0'; j++)
-		{
-			if (s[i] == separators[j])
-			{
-				is_separator = 1;
-				break;
-			}
-		}
-
-		if (capitalize && s[i] >= 'a' && s[i] <= 'z')
-		{
-
-			s[i] -= ('a' - 'A');
-			capitalize = 0;
-		}
-		else if (!is_separator)
-		{
-			capitalize = 0;
-		}
-		else
-		{
-			capitalize = 1;
-		}
-
-		i++;
-	}
-
-	return (s);
+return (s);
 }
