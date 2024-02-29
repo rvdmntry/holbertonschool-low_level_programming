@@ -1,26 +1,19 @@
 #include "main.h"
-
+#include <stdio.h>
 /**
- * print_chessboard - prints the chessboard
- * @a: two-dimensional array representing the chessboard
- *
- * Return: Nothing.
+ * print_chessboard - function that prints the chessboard
+ * @a: array of chess pieces
+ * Return: void
  */
 void print_chessboard(char (*a)[8])
 {
-	int i, j;
-
-	for (i = 0; i < 8; i++)
-	{
-		for (j = 0; j < 8; j++)
-		{
-			_putchar(a[i][j]);
-		}
-		_putchar('\n');
-	}
-}
-
-int _putchar(char c)
+int i, j;
+for (i = 0; i < 8; i++)
 {
-	return (while 1, &c, 1);
+for (j = 0; j < 8; j++)
+{
+_putchar(a[i][j]);
+}
+_putchar('\n');
+}
 }
