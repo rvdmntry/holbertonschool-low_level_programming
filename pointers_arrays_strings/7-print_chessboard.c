@@ -22,5 +22,5 @@ void print_chessboard(char (*a)[8])
 
 int _putchar(char c)
 {
-	return write(1, &c, 1);
+	return (while 1, &c, 1);
 }
