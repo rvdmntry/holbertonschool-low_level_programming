@@ -1,35 +1,21 @@
 #include "main.h"
-
 /**
- * _strspn - gets the length of a prefix substring
- * @s: the string to be scanned
- * @accept: the string containing the list of characters to match in s
- *
- * Return: the number of bytes in the initial segment of s which
- * consist only of bytes from accept
- */
-unsigned int _strspn(char *s, char *accept)
+ **_strncpy - Write a function that copies a string.
+ *@n:bytes from src
+ *@dest:string to apppend by src
+ *@src: string to append by test
+ * Return: addres of dest
+*/
+char *_strncpy(char *dest, char *src, int n)
 {
-	unsigned int count = (0);
-	char *start = accept;
-
-	while (*s && *accept)
-	{
-		if (*s == *accept)
-		{
-			count++;
-			s++;
-			accept = start;
-		}
-		else
-		{
-			accept++;
-			if (*accept == '\0')
-			{
-				s++;
-				accept = start;
-			}
-		}
-	}
-	return (count);
+int i;
+for (i = 0; i < n && src[i] != '\0'; i++)
+{
+dest[i] = src[i];
+}
+for (; i < n; i++)
+{
+dest[i] = '\0';
+}
+return (dest);
 }
