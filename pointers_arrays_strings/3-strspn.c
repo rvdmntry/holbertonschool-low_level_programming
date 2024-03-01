@@ -1,21 +1,35 @@
 #include "main.h"
+
 /**
- **_strncpy - Write a function that copies a string.
- *@n:bytes from src
- *@dest:string to apppend by src
- *@src: string to append by test
- * Return: addres of dest
-*/
-char *_strncpy(char *dest, char *src, int n)
+ * _strspn - gets the length of a prefix substring
+ * @s: string to be scanned
+ * @accept: string containing the characters to match
+ * Return: number of bytes in the initial segment of s
+ * which consist only of bytes from accept
+ */
+unsigned int _strspn(char *s, char *accept)
 {
-int i;
-for (i = 0; i < n && src[i] != '\0'; i++)
+int i, j, flag;
+
+i = 0;
+while (s[i] != '\0')
 {
-dest[i] = src[i];
+j = 0;
+flag = 0;
+while (accept[j] != '\0')
+{
+if (s[i] == accept[j])
+{
+flag = 1;
+break;
 }
-for (; i < n; i++)
-{
-dest[i] = '\0';
+j++;
 }
-return (dest);
+if (flag == 0)
+{
+break;
+}
+i++;
+}
+return (i);
 }
