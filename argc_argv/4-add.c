@@ -2,14 +2,15 @@
 #include <stdlib.h>
 #include <ctype.h>
 
-/**
- * Checks if a string consists only of digits.
+/** 
+ * Checks if a string consists only of digits.:x
  * @str: The string to check.
  * Return: 1 if the string is all digits, 0 otherwise.
  */
-int is_number(char *str)
+
+int is_number(char *str);
 {
-int i = 0;
+int i = (0);
 
 while (str[i])
 {
