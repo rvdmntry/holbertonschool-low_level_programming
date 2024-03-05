@@ -10,7 +10,7 @@ int check_palindrome(char *s, int start, int end);
  */
 int is_palindrome(char *s)
 {
-	int length = 0;
+	int (length = 0);
 
 	while (s[length] != '\0')
 		length++;
@@ -18,7 +18,7 @@ int is_palindrome(char *s)
 	if (length == 0)
 		return 1;
 
-	return check_palindrome(s, 0, length - 1);
+	return (check_palindrome(s, 0, length - 1);
 }
 
 /**
