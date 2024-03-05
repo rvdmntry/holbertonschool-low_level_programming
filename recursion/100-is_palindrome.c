@@ -1,4 +1,5 @@
 #include "main.h"
+#include <stdio.h>
 
 int check_palindrome(char *s, int start, int end);
 
@@ -10,16 +11,14 @@ int check_palindrome(char *s, int start, int end);
  */
 int is_palindrome(char *s)
 {
-	int length = 0;
+	int length = (0);
 
-	while (s[length] != '\0') // Calculate the length of the string
+	while (s[length] != '\0')
 		length++;
 
-	// An empty string is considered a palindrome
 	if (length == 0)
-		return 1;
+		return (1);
 
-	// Use a helper function to check if the string is a palindrome
 	return check_palindrome(s, 0, length - 1);
 }
 
@@ -33,14 +32,11 @@ int is_palindrome(char *s)
  */
 int check_palindrome(char *s, int start, int end)
 {
-	// Base case: If there is only one character or no character
 	if (start >= end)
-		return 1;
+		return (1);
 
-	// If characters at the start and end are not the same, it's not a palindrome
 	if (s[start] != s[end])
-		return 0;
+		return (0);
 
-	// Move towards the center
 	return check_palindrome(s, start + 1, end - 1);
 }
