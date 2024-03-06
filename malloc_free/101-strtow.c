@@ -8,11 +8,11 @@
  */
 int word_len(char *str)
 {
-    int len = 0;
+int len = 0;
 
-    while (*(str + len) && *(str + len) != ' ')
-        len++;
-    return (len);
+while (*(str + len) && *(str + len) != ' ')
+len++;
+return (len);
 }
 
 /**
@@ -22,20 +22,20 @@ int word_len(char *str)
  */
 int count_words(char *str)
 {
-    int words = 0, in_word = 0;
+int words = 0, in_word = 0;
 
-    while (*str)
-    {
-        if (*str == ' ' && in_word)
-            in_word = 0;
-        else if (*str != ' ' && !in_word)
-        {
-            in_word = 1;
-            words++;
-        }
-        str++;
-    }
-    return (words);
+while (*str)
+{
+if (*str == ' ' && in_word)
+in_word = 0;
+else if (*str != ' ' && !in_word)
+{
+in_word = 1;
+words++;
+}
+str++;
+}
+return (words);
 }
 
 /**
@@ -45,38 +45,38 @@ int count_words(char *str)
  */
 char **strtow(char *str)
 {
-    char **split;
-    int i = 0, words = 0, len = 0, j, k;
+char **split;
+int i = 0, words = 0, len = 0, j, k;
 
-    if (!str || !*str)
-        return (NULL);
-    words = count_words(str);
-    if (words == 0)
-        return (NULL);
+if (!str || !*str)
+return (NULL);
+words = count_words(str);
+if (words == 0)
+return (NULL);
 
-    split = malloc(sizeof(char *) * (words + 1));
-    if (!split)
-        return (NULL);
+split = malloc(sizeof(char *) * (words + 1));
+if (!split)
+return (NULL);
 
-    while (i < words)
-    {
-        while (*str == ' ')
-            str++;
-        len = word_len(str);
-        split[i] = malloc(sizeof(char) * (len + 1));
-        if (!split[i])
-        {
-            for (k = 0; k < i; k++)
-                free(split[k]);
-            free(split);
-            return (NULL);
-        }
-        for (j = 0; j < len; j++)
-            split[i][j] = str[j];
-        split[i][j] = '\0';
-        str += len;
-        i++;
-    }
-    split[words] = NULL;
-    return (split);
+while (i < words)
+{
+while (*str == ' ')
+str++;
+len = word_len(str);
+split[i] = malloc(sizeof(char) * (len + 1));
+if (!split[i])
+{
+for (k = 0; k < i; k++)
+free(split[k]);
+free(split);
+return (NULL);
+}
+for (j = 0; j < len; j++)
+split[i][j] = str[j];
+split[i][j] = '\0';
+str += len;
+i++;
+}
+split[words] = NULL;
+return (split);
 }
