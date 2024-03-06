@@ -2,47 +2,77 @@
 #include <stdlib.h>
 
 /**
- * _strlen - Returns the length of a string.
- * @str: The string to get the length of.
- * Return: The length of the string.
+ * word_count - Counts the number of words in a string
+ * @str: The string to be counted
+ *
+ * Return: The number of words
  */
-int _strlen(char *str)
+int word_count(char *str)
 {
-	int length = (0);
+	int count = 0, in_word = 0;
 
-	while (str && str[length])
-		length++;
-	return (length);
+	while (*str)
+	{
+		if (*str == ' ')
+			in_word = 0;
+		else if (!in_word)
+		{
+			in_word = 1;
+			count++;
+		}
+		str++;
+	}
+	return count;
 }
 
 /**
- * argstostr - Concatenates all the arguments of the program.
- * @ac: The number of arguments.
- * @av: The arguments vector.
- * Return: A pointer to the concatenated string, or NULL if it fails.
+ * strtow - Splits a string into words.
+ * @str: The string to split.
+ *
+ * Return: A pointer to an array of strings (words).
  */
-char *argstostr(int ac, char **av)
+char **strtow(char *str)
 {
-	char *str;
-	int i, j, k, len = 0;
+	char **array, *temp;
+	int i = 0, j = 0, length = 0, words, k = 0;
 
-	if (ac == 0 || av == NULL)
+	if (str == NULL || *str == '\0')
 		return (NULL);
 
-	for (i = 0; i < ac; i++)
-		len += _strlen(av[i]) + 1;
-
-	str = (char *)malloc(sizeof(char) * (len + 1));
-	if (str == NULL)
+	words = word_count(str);
+	if (words == 0)
 		return (NULL);
 
-	for (i = 0, k = 0; i < ac; i++)
+	array = malloc((words + 1) * sizeof(char *));
+	if (!array)
+		return (NULL);
+
+	while (i < words)
 	{
-		for (j = 0; av[i][j] != '\0'; j++)
-			str[k++] = av[i][j];
-		str[k++] = '\n';
-	}
-	str[k] = ('\0');
+		while (str[k] == ' ')
+			k++;
+		length = 0;
+		while (str[k + length] != ' ' && str[k + length])
+			length++;
 
-	return (str);
+		array[i] = malloc((length + 1) * sizeof(char));
+		if (!array[i])
+		{
+			for (; i >= 0; i--)
+				free(array[i]);
+			free(array);
+			return (NULL);
+		}
+
+		temp = array[i];
+		for (j = 0; j < length; j++)
+			*temp++ = str[k + j];
+		*temp = '\0';
+
+		k += length;
+		i++;
+	}
+	array[words] = (NULL);
+
+	return (array);
 }
