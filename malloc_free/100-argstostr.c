@@ -2,41 +2,48 @@
 #include <stdlib.h>
 
 /**
- * argstostr - Concatenates all arguments of the program.
+ * _strlen - Returns the length of a string.
+ * @str: The string to get the length of.
+ *
+ * Return: The length of the string.
+ */
+int _strlen(char *str)
+{
+	int length = 0;
+
+	while (str && str[length])
+		length++;
+	return (length);
+}
+
+/**
+ * argstostr - Concatenates all the arguments of the program.
  * @ac: The number of arguments.
- * @av: The arguments array.
- * Return: Pointer to a new string with all arguments concatenated,
- * followed by a newline, or NULL if ac == 0, av == NULL, or failure.
+ * @av: The arguments vector.
+ * Return: A pointer to the concatenated string, or NULL if it fails.
  */
 char *argstostr(int ac, char **av)
 {
-	int i, j, (len = 0, total_len = 0);
-	char (*str, *ptr);
+	char *str;
+	int i, j, k, len = 0;
 
 	if (ac == 0 || av == NULL)
 		return (NULL);
 
 	for (i = 0; i < ac; i++)
-	{
-		for (j = 0; av[i][j] != '\0'; j++)
-			total_len++;
-		total_len++;
-	}
+		len += _strlen(av[i]) + 1;
 
-	str = (char *)malloc(sizeof(char) * (total_len + 1));
-	if (str == `NULL)
+	str = (char *)malloc(sizeof(char) * (len + 1));
+	if (str == NULL)
 		return (NULL);
 
-	ptr = str;
-	for (i = 0; i < ac; i++)
+	for (i = 0, k = 0; i < ac; i++)
 	{
 		for (j = 0; av[i][j] != '\0'; j++)
-		{
-			*ptr++ = av[i][j];
-		}
-		*ptr++ = '\n';
+			str[k++] = av[i][j];
+		str[k++] = '\n';
 	}
-	*ptr = '\0';
+	str[k] = '\0';
 
 	return (str);
 }
