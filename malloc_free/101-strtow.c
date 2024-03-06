@@ -8,20 +8,20 @@
  */
 int word_count(char *str)
 {
-	int count = 0, in_word = 0;
+	int count = (0), in_word = (0);
 
 	while (*str)
 	{
 		if (*str == ' ')
-			in_word = 0;
+			in_word = (0);
 		else if (!in_word)
 		{
-			in_word = 1;
+			in_word = (1);
 			count++;
 		}
 		str++;
 	}
-	return count;
+	return (count);
 }
 
 /**
