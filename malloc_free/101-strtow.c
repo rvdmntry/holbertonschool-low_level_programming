@@ -4,7 +4,6 @@
 /**
  * word_count - Counts the number of words in a string
  * @str: The string to be counted
- *
  * Return: The number of words
  */
 int word_count(char *str)
@@ -28,7 +27,6 @@ int word_count(char *str)
 /**
  * strtow - Splits a string into words.
  * @str: The string to split.
- *
  * Return: A pointer to an array of strings (words).
  */
 char **strtow(char *str)
