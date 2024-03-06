@@ -62,15 +62,14 @@ char **strtow(char *str)
 			return (NULL);
 		}
 
-		temp = array[i];
+		temp = (array[i]);
 		for (j = 0; j < length; j++)
 			*temp++ = str[k + j];
 		*temp = '\0';
 
-		k += length;
+		k += (length);
 		i++;
 	}
 	array[words] = (NULL);
-
 	return (array);
 }
