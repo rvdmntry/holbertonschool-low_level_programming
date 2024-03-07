@@ -2,13 +2,12 @@
 #include <stdlib.h>
 
 /**
- * string_nconcat - Concatenates two strings using at most an inputted number of bytes.
+ * string_nconcat - Concatenates two strings using most inputted number bytes
  * @s1: The first string.
  * @s2: The second string.
- * @n: The maximum number of bytes of s2 to concatenate to s1.
- *
- * Return: A pointer to the newly allocated space in memory containing the concatenated string.
- *         Returns NULL if the function fails.
+ * @n: The maximum number of bytes of s2 to concatenate to s1
+ * Return: A pointer to the newly allocated space in memory containing
+ * Returns NULL if the function fails
  */
 char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
@@ -23,7 +22,7 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	if (n < len2)
 		len2 = n;
 
-	concat_str = malloc(len1 + len2 + 1); // +1 for the null terminator
+	concat_str = malloc(len1 + len2 + 1);
 	if (concat_str == NULL)
 		return (NULL);
 
