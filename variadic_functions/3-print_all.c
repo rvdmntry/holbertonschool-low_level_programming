@@ -24,7 +24,7 @@ while (format && format[i])
 switch (format[i])
 {
 case 'c':
-rintf("%s%c", separator, va_arg(args, int));
+printf("%s%c", separator, va_arg(args, int));
 break;
 case 'i':
 printf("%s%d", separator, va_arg(args, int));
