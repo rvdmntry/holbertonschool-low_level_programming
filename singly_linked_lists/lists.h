@@ -9,7 +9,7 @@
  * @len: length of the string
  * @next: points to the next node
  * Description: This struct is for managing a singly linked list, where each
- * node contains a string and its length, along with a pointer to the next node.
+ * node contains a string and its length, along with a pointer to the next node
  */
 
 typedef struct list_s
