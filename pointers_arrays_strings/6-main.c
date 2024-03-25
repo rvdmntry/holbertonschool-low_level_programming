@@ -1,15 +1,26 @@
 #include "main.h"
 
 /**
- * main - check the code
+ * print_chessboard - prints the chessboard
+ * @a: two-dimensional array representing the chessboard
  *
- * Return: Always 0.
+ * Return: Nothing.
  */
-int main(void)
+void print_chessboard(char (*a)[8])
 {
-char *str;
+	int i, j;
 
-str = "0123456789";
-puts2(str);
-return (0);
+	for (i = 0; i < 8; i++)
+	{
+		for (j = 0; j < 8; j++)
+		{
+			_putchar(a[i][j]);
+		}
+		_putchar('\n');
+	}
+}
+
+int _putchar(char c)
+{
+	return write(1, &c, 1);
 }
