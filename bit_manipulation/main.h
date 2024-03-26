@@ -11,6 +11,7 @@
  * Return: the converted number, or 0 if there is an error
  */
 unsigned int binary_to_uint(const char *b);
+void print_binary(unsigned long int n);
 
 /**
  * _putchar - writes the character c to stdout
